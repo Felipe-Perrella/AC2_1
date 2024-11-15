@@ -1,6 +1,6 @@
 # Usar uma imagem leve do JDK 22
 #FROM openjdk:22-jre-slim
-FROM openjdk:jdk-22
+FROM openjdk:21
 
 # Definir o diretório de trabalho dentro do container
 WORKDIR /ac2_1
