@@ -1,10 +1,10 @@
-package com.facens.AC2_1;
+package ac2_project.example.ac2_ca.test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Ac21ApplicationTests {
+class Ac2ApplicationTests {
 
 	@Test
 	void contextLoads() {
