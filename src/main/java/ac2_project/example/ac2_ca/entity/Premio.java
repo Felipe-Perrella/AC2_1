@@ -1,10 +1,15 @@
 package ac2_project.example.ac2_ca.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity
 @Table(name = "tb_Premio")
+@Getter
+@Setter
+
 public class Premio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +25,9 @@ public class Premio {
 	public Premio_Voucher getQntVouchers() {
         return voucher;
     }
+
+	public Long getId() {
+		return id;
+	}
 	
 }
