@@ -9,4 +9,4 @@ COPY target/AC2_1-0.0.1-SNAPSHOT.jar /ac2_1/AC2_1-0.0.1-SNAPSHOT.jar
 EXPOSE 8484
 
 # Comando para executar a aplicação com Java 21
-CMD ["java", "-XX:+UseContainerSupport", "-Xmx512m", "-Dserver.port=8585", "-jar", "ac2_1-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-XX:+UseContainerSupport", "-Xmx512m", "-Dserver.port=8585", "-jar", "AC2_1-0.0.1-SNAPSHOT.jar"]
