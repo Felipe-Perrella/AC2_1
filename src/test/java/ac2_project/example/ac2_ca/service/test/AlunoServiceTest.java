@@ -10,6 +10,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import ac2_project.example.ac2_ca.dto.AlunoDTO;
@@ -28,6 +32,33 @@ class AlunoServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+    }
+    
+    
+    @Test
+    void testCreateAluno() {
+        // Arrange
+        AlunoDTO alunoDTO = new AlunoDTO();
+        alunoDTO.setName("student01");
+        alunoDTO.setEmail("student@example.com");
+
+        Aluno savedAluno = new Aluno();
+        savedAluno.setId(1L);
+        savedAluno.setUsername("student01");
+        savedAluno.setEmail(new Aluno_Email("student@example.com"));
+
+        when(alunoRepository.save(any(Aluno.class))).thenReturn(savedAluno);
+
+        // Act
+        Aluno result = alunoService.createUser(alunoDTO);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals("student01", result.getUsername());
+        assertEquals("student@example.com", result.getEmail().getEmailAddress());
+        assertNotNull(result.getId());
+
+        verify(alunoRepository, times(1)).save(any(Aluno.class));
     }
 
     @Test

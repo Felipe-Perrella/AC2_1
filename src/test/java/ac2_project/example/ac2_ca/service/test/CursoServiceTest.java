@@ -10,6 +10,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import ac2_project.example.ac2_ca.dto.CursoDTO;
@@ -29,6 +33,31 @@ class CursoServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+    }
+    
+    @Test
+    void testCreateCurso() {
+        // Inicializa os mocks
+        MockitoAnnotations.openMocks(this);
+
+        // Simula os dados de entrada
+        CursoDTO cursoDTO = new CursoDTO();
+        cursoDTO.setCodigo("MNO");
+
+        // Simula o retorno do repositório
+        Curso mockCurso = new Curso();
+        mockCurso.setCodigo(new Curso_Codigo("MNO"));
+        when(cursoRepository.save(any(Curso.class))).thenReturn(mockCurso);
+
+        // Executa o método a ser testado
+        Curso createdCurso = cursoService.createCurso(cursoDTO);
+
+        // Verifica se o curso foi salvo com o código correto
+        assertNotNull(createdCurso);
+        assertEquals("MNO", createdCurso.getCodigo());
+
+        // Verifica se o repositório foi chamado uma vez
+        verify(cursoRepository, times(1)).save(any(Curso.class));
     }
 
     @Test
@@ -51,4 +80,6 @@ class CursoServiceTest {
         assertEquals("testecodIGo", cursos.get(0).getCodigo());
         assertEquals("tesTEEEcodIGo", cursos.get(1).getCodigo());
     }
+    
+    
 }

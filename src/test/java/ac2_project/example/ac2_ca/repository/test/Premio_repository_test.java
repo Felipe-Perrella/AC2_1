@@ -12,8 +12,7 @@ import ac2_project.example.ac2_ca.entity.*;
 import ac2_project.example.ac2_ca.repository.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ActiveProfiles("test")
 @DataJpaTest
@@ -34,7 +33,7 @@ public class Premio_repository_test {
 
 	        Optional<Premio> retrievedPremio = premioRepository.findById(savedPremio.getId());
 	        assertThat(retrievedPremio).isPresent();
-	        assertThat(retrievedPremio.get().getQntVouchers()).isEqualTo(2);
+	        assertEquals(2,retrievedPremio.get().getVoucher().getQtdVoucher());
 	    }
 	
 
