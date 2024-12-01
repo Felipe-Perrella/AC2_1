@@ -20,7 +20,7 @@ public class Curso_Codigo {
     }
 
     public String getCodigo() {
-        return codigo;
+        return this.codigo;
     }
 
     // Sobrescreva equals e hashCode para garantir comparação por valor

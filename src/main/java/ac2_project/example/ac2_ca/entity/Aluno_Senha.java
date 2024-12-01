@@ -18,7 +18,7 @@ public class Aluno_Senha {
         this.password = password;
     }
 
-    public String getEmailAddress() {
+    public String getPassword() {
         return password;
     }
 

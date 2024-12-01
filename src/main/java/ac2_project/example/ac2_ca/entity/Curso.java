@@ -19,4 +19,8 @@ public class Curso {
 	
 	@Embedded
 	private Curso_Codigo codigo;
+	
+	public String getCodigo(){
+		return this.codigo.getCodigo();
+	}
 }

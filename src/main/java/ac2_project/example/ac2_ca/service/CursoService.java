@@ -27,7 +27,7 @@ public class CursoService {
         return cursoRepository.findAll().stream()
                 .map(curso -> {
                 	CursoDTO dto = new CursoDTO();
-                    dto.setCodigo(curso.getCodigo().getCodigo());
+                    dto.setCodigo(curso.getCodigo());
                     return dto;
                 })
                 .collect(Collectors.toList());

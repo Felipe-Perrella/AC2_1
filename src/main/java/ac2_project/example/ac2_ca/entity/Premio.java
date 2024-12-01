@@ -22,12 +22,8 @@ public class Premio {
         this.voucher = voucher;
     }
 	
-	public Premio_Voucher getQntVouchers() {
-        return voucher;
+	public int getQntVouchers() {
+		return this.voucher != null ? this.voucher.getQtdVoucher() : 0;
     }
-
-	public Long getId() {
-		return id;
-	}
 	
 }

@@ -1,14 +1,11 @@
-package ac2_project.example.ac2_ca.entity;
-
+package ac2_project.example.ac2_ca.entity;	
 import java.util.Objects;
 
 import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Premio_Voucher {
-
     private int qtdVoucher;
-
     // Construtor padrão necessário para o JPA
     protected Premio_Voucher() {}
     
@@ -44,6 +41,5 @@ public class Premio_Voucher {
     public int hashCode() {
         return Objects.hash(qtdVoucher);
     }
-
 	
 }

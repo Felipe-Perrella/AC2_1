@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 @Entity
 @Table
 public class Aluno {
@@ -47,8 +46,8 @@ public class Aluno {
         this.email = email;
     }
     
-    public Aluno_Senha getSenha() {
-        return password;
+    public String getSenha() {
+        return password.getPassword();
     }
 
     public void setSenha(Aluno_Senha password) {

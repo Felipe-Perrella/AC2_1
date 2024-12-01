@@ -27,7 +27,7 @@ public class PremioService {
         return premioRepository.findAll().stream()
                 .map(premio -> {
                 	PremioDTO dto = new PremioDTO();
-                    dto.setVouchers(premio.getQntVouchers().getQtdVoucher());
+                    dto.setVouchers(premio.getQntVouchers());
                     return dto;
                 })
                 .collect(Collectors.toList());
